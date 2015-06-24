@@ -1,6 +1,7 @@
 # plug_ribbon
 
 [![Build Status](https://travis-ci.org/stnly/plug_ribbon.svg?branch=master)](https://travis-ci.org/stnly/plug_ribbon)
+[![Hex Version](https://img.shields.io/hexpm/v/plug_ribbon.svg)](https://hex.pm/packages/plug_ribbon)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 This [Plug](https://github.com/elixir-lang/plug) module injects a ribbon to your web application in the development environment.
