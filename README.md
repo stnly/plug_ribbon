@@ -1,5 +1,7 @@
 # plug_ribbon
 
+[![Build Status](https://travis-ci.org/stnly/plug_ribbon.svg?branch=master)](https://travis-ci.org/stnly/plug_ribbon)
+
 This [Plug](https://github.com/elixir-lang/plug) module injects a ribbon to your web application in the development environment.
 
 Used to differentiate development environment from production.
