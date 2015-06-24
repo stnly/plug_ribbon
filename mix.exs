@@ -9,6 +9,7 @@ defmodule PlugRibbon.Mixfile do
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     package: package,
      deps: deps,
      source_url: "https://github.com/stnly/plug_ribbon",
      homepage_url: "https://git.io/plug_ribbon",
