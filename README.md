@@ -1,6 +1,6 @@
 # plug_ribbon
 
-This Plug module injects a ribbon to your web application in the development environment.
+This [Plug](https://github.com/elixir-lang/plug) module injects a ribbon to your web application in the development environment.
 
 Used to differentiate development environment from production.
 
@@ -67,5 +67,5 @@ $ MIX_ENV=dev mix test
 
 ## License
 
-See the LICENSE file for more information.
+See the [LICENSE](LICENSE) file for more information.
 
