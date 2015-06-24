@@ -9,13 +9,17 @@ defmodule PlugRibbon.Mixfile do
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     package: package,
      deps: deps,
+     package: package,
      source_url: "https://github.com/stnly/plug_ribbon",
      homepage_url: "https://git.io/plug_ribbon",
-     description: """
-     Injects a ribbon to your web application in the development environment
-     """]
+     description: description]
+  end
+
+  defp description do
+  """
+  Injects a ribbon to your web application depending on the environment
+  """
   end
 
   # Configuration for the OTP application
