@@ -4,9 +4,9 @@
 [![Hex Version](https://img.shields.io/hexpm/v/plug_ribbon.svg)](https://hex.pm/packages/plug_ribbon)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-This [Plug](https://github.com/elixir-lang/plug) module injects a ribbon to your web application in the development environment.
+This [Plug](https://github.com/elixir-lang/plug) module injects a ribbon to your web application in the configured environment.
 
-Used to differentiate development environment from production.
+Used to differentiate between environments.
 
 ![](priv/static/screenshot.png)
 
@@ -21,7 +21,7 @@ To use plug_ribbon in your projects, edit your `mix.exs` file and add plug_ribbo
 ```elixir
 defp deps do
   [
-    {:plug_ribbon, ">= 0.1.0"}
+    {:plug_ribbon, "~> 0.2.0"}
   ]
 end
 ```
@@ -29,6 +29,8 @@ end
 ## Usage
 
 This plug should be one of the last ones in your pipeline.
+
+Add the plug and specify the environment atoms that you want the ribbon to be shown.
 
 ```elixir
 defmodule MyPhoenixApp.Router do
@@ -39,7 +41,7 @@ defmodule MyPhoenixApp.Router do
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
-    plug Plug.Ribbon
+    plug Plug.Ribbon, [:dev, :staging, :test]
   end
 
   pipeline :api do
@@ -61,12 +63,13 @@ end
 
 After you are done, run `mix deps.get` in your shell to fetch the dependencies.
 
+The ribbon will display a label with your current environment in capital letters.
+`Mix.env |> Atom.to_string |> String.upcase`
+
 ## Testing
 
-Since this module uses environment variables, run the tests with it set to `dev`.
-
 ```bash
-$ MIX_ENV=dev mix test
+$ mix test
 ```
 
 ## License
