@@ -4,6 +4,6 @@ elixir:
 otp_release:
   - 17.4
 env:
-  - MIX_ENV="test"
+  - MIX_ENV="dev"
 script:
   - mix test
