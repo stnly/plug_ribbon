@@ -14,7 +14,7 @@ defmodule PlugRibbonTest do
     conn = conn(:get, "/")
     |> put_resp_content_type("text/html")
     |> resp(200, "<html><body><h1>Phoenix</h1></body></html>")
-    |> Plug.Ribbon.call(["dev", "test"])
+    |> Plug.Ribbon.call([:dev, :test])
     |> send_resp()
 
     assert conn.status == 200
@@ -26,7 +26,7 @@ defmodule PlugRibbonTest do
     conn = conn(:get, "/")
     |> put_resp_content_type("text/html")
     |> resp(200, "<html><body><h1>Phoenix</h1></body></html>")
-    |> Plug.Ribbon.call(["test", "dev"])
+    |> Plug.Ribbon.call([:test, :dev])
     |> send_resp()
 
     assert conn.status == 200
@@ -38,7 +38,7 @@ defmodule PlugRibbonTest do
     conn = conn(:get, "/")
     |> put_resp_content_type("text/html")
     |> resp(200, "<html><body><h1>Phoenix</h1></body></html>")
-    |> Plug.Ribbon.call(["test", "dev"])
+    |> Plug.Ribbon.call([:test, :dev])
     |> send_resp()
 
     assert conn.status == 200
@@ -46,10 +46,11 @@ defmodule PlugRibbonTest do
   end
 
   test "does not inject banner if html response missing body tag" do
+    Mix.env(:dev)
     conn = conn(:get, "/")
     |> put_resp_content_type("text/html")
     |> resp(200, "<h1>Phoenix</h1>")
-    |> Plug.Ribbon.call(["test", "dev"])
+    |> Plug.Ribbon.call([:test, :dev])
     |> send_resp()
 
     assert conn.status == 200
@@ -57,10 +58,11 @@ defmodule PlugRibbonTest do
   end
 
   test "does not inject banner if response is json" do
+    Mix.env(:dev)
     conn = conn(:get, "/")
     |> put_resp_content_type("application/json")
     |> resp(200, "{}")
-    |> Plug.Ribbon.call(["test", "dev"])
+    |> Plug.Ribbon.call([:test, :dev])
     |> send_resp()
 
     assert conn.status == 200
