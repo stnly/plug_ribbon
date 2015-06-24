@@ -2,13 +2,13 @@ defmodule Plug.Ribbon do
   import Plug.Conn
 
   @moduledoc """
-  Module for injecting a ribbon when in development environment.
+  Module for injecting a ribbon depending on the environment.
 
   ## Usage
 
-  Add the `Plug.Ribbon` plug to your router
+  Add the `Plug.Ribbon` plug to your router and specify the environment
 
-      plug Plug.Ribbon
+      plug Plug.Ribbon, [:dev, :staging]
 
   """
 
@@ -20,9 +20,9 @@ defmodule Plug.Ribbon do
 
   def init(default), do: default
 
-  def call(conn, _opts) do
+  def call(conn, env) do
     cond do
-      String.match?("#{Mix.env}", ~r/dev/) ->
+      Set.member?(Enum.into(env, HashSet.new), Mix.env) ->
         add_ribbon(conn)
 
       true ->
@@ -68,7 +68,7 @@ defmodule Plug.Ribbon do
     </style>
     <div class="plug-ribbon-wrapper right">
       <div class="plug-ribbon">
-        <a href="/">Development</a>
+        <a href="/">#{Mix.env |> Atom.to_string |> String.upcase}</a>
       </div>
     </div>
     <!-- /Plug Ribbon -->
