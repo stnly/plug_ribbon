@@ -30,7 +30,7 @@ end
 
 This plug should be one of the last ones in your pipeline.
 
-Add the plug and specify the environment atoms that you want the ribbon to be shown.
+Add the plug and specify a list of environment atoms that you want the ribbon to be shown.
 
 ```elixir
 defmodule MyPhoenixApp.Router do
