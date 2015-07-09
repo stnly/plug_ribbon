@@ -45,7 +45,7 @@ defmodule PlugRibbon.Mixfile do
   defp package do
     [contributors: ["Stanley Tan"],
      licenses: ["MIT"],
-     links: %{github: "https://git.io/plug_ribbon"},
+     links: %{GitHub: "https://git.io/plug_ribbon"},
      files: ~w(lib priv test mix.exs) ++
             ~w(LICENSE README.md)]
   end
