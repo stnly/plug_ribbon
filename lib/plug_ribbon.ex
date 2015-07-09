@@ -22,7 +22,7 @@ defmodule Plug.Ribbon do
 
   def call(conn, env) do
     cond do
-      Set.member?(Enum.into(env, HashSet.new), Mix.env) ->
+      env |> Enum.into(HashSet.new) |> Set.member?(Mix.env) ->
         add_ribbon(conn)
 
       true ->
